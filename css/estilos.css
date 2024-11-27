@@ -6,9 +6,8 @@
 
 }
 
-.tiempoAgotado{
-    color: red;
-    font-size: 1.3rem;
+.tiempoAgotado{    
+    animation: cambioColor 1s infinite;
 }
 
 .tablero div img:hover{
@@ -30,4 +29,9 @@ https://cssgenerator.org/box-shadow-css-generator.html */
 
 .fondo3{
     background-image: url("../images/fondo1.jpg");
+}
+
+@keyframes cambioColor {
+    0% {color: red;}
+    100% {color: greenyellow;}
 }

@@ -75,8 +75,8 @@ let aciertos = 0; //guardar los aciertos
 let totalAciertos = 0; //guardar los aciertos totales
 let totalTiempo = 0; //guardar el tiempo total
 let tiempoSobrante = 0; //guardar el tiempo sobrante
-let totalIntentos = 0; //guardar los intentos totales
 let intentos = 0; //guardar los intentos
+let totalIntentos = 0; //guardar los intentos totales
 let tiempo = 60; //guardar el tiempo
 let tiempoTranscurrido; //guardar el tiempo transcurrido
 let nivel = 1; //guardar el nivel
@@ -217,6 +217,7 @@ function compararImagenes() {
     totalTiempo += tiempo;
     tiempoSobrante += 60 - tiempo;
     obtenerDatos();
+    mostrarDatos();
     sonidoPasoNivel.play();
     nivel++;
     mostrarNivel.textContent = nivel;
@@ -232,6 +233,11 @@ function compararImagenes() {
   } else if (nivel == 2 && aciertos == 8) {
     miAlerta("Felicidades has ganado, pasaste al siguiente nivel.🥳👍", "success");
     fondoBody.classList.replace("fondo2", "fondo3");
+    totalIntentos += intentos;
+    totalTiempo += tiempo;
+    tiempoSobrante += 50 - tiempo;
+    obtenerDatos();
+    mostrarDatos();
     sonidoPasoNivel.play();
     nivel++;
     mostrarNivel.textContent = nivel;
@@ -246,6 +252,11 @@ function compararImagenes() {
     quitarImg();
   } else if (nivel == 3 && aciertos == 10) {
     miAlerta("Felicidades has ganado el juego.🥳👍", "success");
+    totalIntentos += intentos;
+    totalTiempo += tiempo;
+    tiempoSobrante += 45 - tiempo;
+    obtenerDatos();
+    mostrarDatos();
     sonidoPasoNivel.play();
     location.reload();
   }
@@ -286,6 +297,7 @@ function tiempoDeJuego() {
       tiempoAgotandose.pause();
       sonidoJuegoPerdido.play();
       sonidoJuegoPerdido.volume = 0.4;
+      obtenerDatos();
       clearInterval(tiempoTranscurrido);
       setTimeout(() => {
         location.reload(); //quitar luego.

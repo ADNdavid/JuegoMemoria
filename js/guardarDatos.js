@@ -10,18 +10,16 @@ function obtenerDatos() {
     intentos: totalIntentos,
     tiempoTotal: totalTiempo,
     tiempoSobrante: tiempoSobrante,
+    nivelesSuperados: nivel,
   };
   //mostrar en consola
   console.log(datosJugador);
 
-  let jugadoresPrevios = JSON.parse(localStorage.getItem(listaJugadores)) || [];
+  //actualizar los datos del jugador
+  actualizarRegistro(datosJugador);
 
-  //let jugadoresActualizados = jugadoresPrevios.filter((jugador)=> { jugador.nombre != nombreJugador.textContent}); 
-
-  //console.log(jugadoresActualizados);
-  //localStorage.setItem(listaJugadores, JSON.stringify(jugadoresActualizados));
   //pasar los datos del jugador
-  guardarDatos(datosJugador);
+  //guardarDatos(datosJugador);
 }
 
 //función para guardar los datos en local storage
@@ -60,7 +58,7 @@ function mostrarDatos() {
   });
 
   //Limpia el contenido de la tabla
-  tabla.innerHTML="";
+  tabla.innerHTML = "";
 
   //mostrar los datos en la tabla
   jugadores.forEach((jugador, i) => {
@@ -75,4 +73,28 @@ function mostrarDatos() {
         `;
     tabla.appendChild(fila);
   });
+}
+
+function actualizarRegistro(datosJugador) {
+  let jugadoresPrevios = JSON.parse(localStorage.getItem(listaJugadores)) || [];
+  let jugadorExiste = false;
+
+ //Actualiza los datos previos
+  jugadoresPrevios.forEach((jugador) => {
+    if (jugador.nombre == nombreJugador.textContent) {
+      jugador.intentos = datosJugador.intentos;
+      jugador.tiempoTotal = datosJugador.tiempoTotal;
+      jugador.tiempoSobrante = datosJugador.tiempoSobrante;
+      jugador.nivelesSuperados = datosJugador.nivelesSuperados;
+      jugadorExiste = true;
+    }
+  });
+  console.log(jugadoresPrevios);
+
+  if (!jugadorExiste) {
+    guardarDatos(datosJugador);
+  }else{
+    localStorage.setItem(listaJugadores, JSON.stringify(jugadoresPrevios));
+  }
+
 }

@@ -333,23 +333,9 @@ function ventanaModal() {
   mostrarModal.classList.add("show");
   mostrarModal.style.display = "block";
 
-  //evento click para registrar el nombre del jugador
-  btnJugador.addEventListener("click", () => {
-    //mostrar el nombre del jugador
-    mostrarJugador.textContent = inputJugador.value;
-    //cerrar el modal
-    mostrarModal.classList.remove("show");
-    mostrarModal.style.display = "none";
-    //iniciar nivel 1
-    estoyJugando = true;
-    nivel1();
-    console.log("Se ejecuta juego nivel 1 por Botón");
-  });
-
-  //evento click para registrar el nombre del jugador al momento de presionar Enter
-  inputJugador.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
+  if (inputJugador.value != null) {
+    //evento click para registrar el nombre del jugador
+    btnJugador.addEventListener("click", () => {
       //mostrar el nombre del jugador
       mostrarJugador.textContent = inputJugador.value;
       //cerrar el modal
@@ -358,9 +344,29 @@ function ventanaModal() {
       //iniciar nivel 1
       estoyJugando = true;
       nivel1();
-      console.log("Se ejecuta juego nivel 1 por presionar Enter");
-    }
-  });
+      console.log("Se ejecuta juego nivel 1 por Botón");
+    });
+  
+    //evento click para registrar el nombre del jugador al momento de presionar Enter
+    inputJugador.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        //mostrar el nombre del jugador
+        mostrarJugador.textContent = inputJugador.value;
+        //cerrar el modal
+        mostrarModal.classList.remove("show");
+        mostrarModal.style.display = "none";
+        //iniciar nivel 1
+        estoyJugando = true;
+        nivel1();
+        console.log("Se ejecuta juego nivel 1 por presionar Enter");
+      }
+    });
+    
+  } else {
+    miAlerta("Debes ingresar un nombre para poder jugar", "info");
+  }
+
 }
 
 function miAlerta(mensaje, icono) {

@@ -1,0 +1,33 @@
+.altura{
+    height: 150px !important;
+    border-radius: 15px;   
+    object-fit: fill;
+    object-position: center;
+
+}
+
+.tiempoAgotado{
+    color: red;
+    font-size: 1.3rem;
+}
+
+.tablero div img:hover{
+    transform: scale(1.2);
+    box-shadow: -3px 10px 24px 11px rgba(246,210,98,0.62);
+}
+/* pagina para generar sombras en css:
+https://cssgenerator.org/box-shadow-css-generator.html */
+
+.fondo1, .fondo2, .fondo3{
+    background-image: url("../images/fondo3.jpg");
+    background-size: cover ;
+    height: 100vh;
+}
+
+.fondo2{
+    background-image: url("../images/fondo.jpg");
+}
+
+.fondo3{
+    background-image: url("../images/fondo1.jpg");
+}

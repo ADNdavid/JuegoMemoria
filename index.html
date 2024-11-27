@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Memoria</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./images/rompecabezas.png" type="image/x-icon">
+</head>
+<body>
+    <main class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-warning my-3 text-center">Juego Memoria</h1>
+            </div>
+            <div class="col-12 my-3">
+                <ul class="nav justify-content-center rounded-pill bg-info-subtle py-1 fw-medium">
+                    <li class="nav-item">
+                      <a class="nav-link">JUGADOR: <span class="jugador">PLAYER 1</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link">ACIERTOS: <span class="aciertos">0</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link">INTENTOS: <span class="intentos">0</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " >TIEMPO DE JUEGO: <span class="tiempo">0</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link">NIVEL: <span class="nivel">0</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="btn-iniciar btn btn-warning">INICIAR</a>
+                    </li>
+                  </ul>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1 class="text-warning">Tablero de juego</h1>
+                        <hr class="text-warning">
+                        <div class="tablero row">
+                        <!-- aquí van las imagenes-->
+                        </div>
+                    </div>
+                    <div class="col-md-5 rounded-4 bg-body">
+                        <table class="table my-3 records">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Jugador</th>
+                                    <th>Tiempo total</th>
+                                    <th>Intentos totales</th>
+                                    <th>Tiempo restante</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">🖐 Bienvenido!!</h1>
+        <button type="button" class="btn-close cerrar" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class=" col-form-label">Nombre jugador:</label>
+            <input type="text" class="nombre-jugador form-control" id="recipient-name">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary cerrar" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary registrar-jugador">Registrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./js/funciones.js"></script>
+    <script src="./js/guardarDatos.js"></script>
+</body>
+</html>

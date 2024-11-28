@@ -55,6 +55,9 @@ function mostrarDatos() {
     if (a.tiempoSobrante > b.tiempoSobrante) {
       return -1;
     }
+    if (a.nivelesSuperados > b.nivelesSuperados) {
+      return 1;
+    }
   });
 
   //Limpia el contenido de la tabla
@@ -70,6 +73,7 @@ function mostrarDatos() {
         <td class="text-center">${jugador.tiempoTotal}</td>
         <td class="text-center">${jugador.intentos}</td>
         <td class="text-center">${jugador.tiempoSobrante}</td>
+        <td class="text-center">${jugador.nivelesSuperados}</td>
         `;
     tabla.appendChild(fila);
   });
@@ -79,7 +83,7 @@ function actualizarRegistro(datosJugador) {
   let jugadoresPrevios = JSON.parse(localStorage.getItem(listaJugadores)) || [];
   let jugadorExiste = false;
 
- //Actualiza los datos previos
+  //Actualiza los datos previos
   jugadoresPrevios.forEach((jugador) => {
     if (jugador.nombre == nombreJugador.textContent) {
       jugador.intentos = datosJugador.intentos;
@@ -93,8 +97,7 @@ function actualizarRegistro(datosJugador) {
 
   if (!jugadorExiste) {
     guardarDatos(datosJugador);
-  }else{
+  } else {
     localStorage.setItem(listaJugadores, JSON.stringify(jugadoresPrevios));
   }
-
 }

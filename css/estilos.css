@@ -2,8 +2,8 @@
     height: 150px !important;
     border-radius: 15px;   
     object-fit: fill;
-    object-position: center;
-
+    object-position: center center;
+    -webkit-user-drag: none;
 }
 
 .tiempoAgotado{    

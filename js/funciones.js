@@ -5,7 +5,7 @@ let imagenesNivel1 = [
   { nombre: "homero", url: "./images/homero.jpg" },
   { nombre: "lisa", url: "./images/lisa.jpg" },
   { nombre: "abuelo", url: "./images/abuelo.jpg" },
-  { nombre: "bart", url: "./images/bart.jpg" },
+  { nombre: "bart", url: "./images/bart.png" },
   { nombre: "maggie", url: "./images/maggie.jpg" },
   { nombre: "marge", url: "./images/marge.jpg" },
 
@@ -13,7 +13,7 @@ let imagenesNivel1 = [
   { nombre: "homero", url: "./images/homero.jpg" },
   { nombre: "lisa", url: "./images/lisa.jpg" },
   { nombre: "abuelo", url: "./images/abuelo.jpg" },
-  { nombre: "bart", url: "./images/bart.jpg" },
+  { nombre: "bart", url: "./images/bart.png" },
   { nombre: "maggie", url: "./images/maggie.jpg" },
   { nombre: "marge", url: "./images/marge.jpg" },
 ];
@@ -23,20 +23,20 @@ let imagenesNivel2 = [
   { nombre: "homero", url: "./images/homero.jpg" },
   { nombre: "lisa", url: "./images/lisa.jpg" },
   { nombre: "abuelo", url: "./images/abuelo.jpg" },
-  { nombre: "bart", url: "./images/bart.jpg" },
+  { nombre: "bart", url: "./images/bart.png" },
   { nombre: "maggie", url: "./images/maggie.jpg" },
   { nombre: "marge", url: "./images/marge.jpg" },
-  { nombre: "carro", url: "./images/carro.jpg" },
+  { nombre: "carro", url: "./images/carro.png" },
   { nombre: "perro", url: "./images/perro.jpg" },
 
   //duplicadas
   { nombre: "homero", url: "./images/homero.jpg" },
   { nombre: "lisa", url: "./images/lisa.jpg" },
   { nombre: "abuelo", url: "./images/abuelo.jpg" },
-  { nombre: "bart", url: "./images/bart.jpg" },
+  { nombre: "bart", url: "./images/bart.png" },
   { nombre: "maggie", url: "./images/maggie.jpg" },
   { nombre: "marge", url: "./images/marge.jpg" },
-  { nombre: "carro", url: "./images/carro.jpg" },
+  { nombre: "carro", url: "./images/carro.png" },
   { nombre: "perro", url: "./images/perro.jpg" },
 ];
 
@@ -45,10 +45,10 @@ let imagenesNivel3 = [
   { nombre: "homero", url: "./images/homero.jpg" },
   { nombre: "lisa", url: "./images/lisa.jpg" },
   { nombre: "abuelo", url: "./images/abuelo.jpg" },
-  { nombre: "bart", url: "./images/bart.jpg" },
+  { nombre: "bart", url: "./images/bart.png" },
   { nombre: "maggie", url: "./images/maggie.jpg" },
   { nombre: "marge", url: "./images/marge.jpg" },
-  { nombre: "carro", url: "./images/carro.jpg" },
+  { nombre: "carro", url: "./images/carro.png" },
   { nombre: "perro", url: "./images/perro.jpg" },
   { nombre: "gato", url: "./images/gato.jpg" },
   { nombre: "abuela", url: "./images/abuela.jpg" },
@@ -57,10 +57,10 @@ let imagenesNivel3 = [
   { nombre: "homero", url: "./images/homero.jpg" },
   { nombre: "lisa", url: "./images/lisa.jpg" },
   { nombre: "abuelo", url: "./images/abuelo.jpg" },
-  { nombre: "bart", url: "./images/bart.jpg" },
+  { nombre: "bart", url: "./images/bart.png" },
   { nombre: "maggie", url: "./images/maggie.jpg" },
   { nombre: "marge", url: "./images/marge.jpg" },
-  { nombre: "carro", url: "./images/carro.jpg" },
+  { nombre: "carro", url: "./images/carro.png" },
   { nombre: "perro", url: "./images/perro.jpg" },
   { nombre: "gato", url: "./images/gato.jpg" },
   { nombre: "abuela", url: "./images/abuela.jpg" },
@@ -102,7 +102,6 @@ let tabla = d.querySelector(".records tbody"); //mostrar la tabla de los jugador
 
 let fondoBody = d.querySelector("body"); //seleccionar el body del html
 
-
 // setTimeout//Se ejecuta una sola vez pasado un tiempo.
 // setInterval//Se ejecuta varias veces pasado un tiempo.
 d.addEventListener("DOMContentLoaded", () => {
@@ -128,7 +127,7 @@ btnIniciar.addEventListener("click", function () {
   }
 });
 
-//función para agregar las imagenes al tablero
+//función para agregar las imágenes al tablero
 function agregarImagenes() {
   if (nivel == 1) {
     imagenesNivel = imagenesNivel1;
@@ -143,7 +142,7 @@ function agregarImagenes() {
   //recorrer con un foreach las imagenes del array
   imagenesNivel.forEach((img, i) => {
     let div = d.createElement("div"); //crear div
-    div.className = "col-3 my-2"; // agregar clase al div
+    div.className = "col-3 my-2 text-center"; // agregar clase al div
     let imagen = d.createElement("img"); //crear imagen
     imagen.src = "./images/ocultar.jpg"; //agregar la ubicación de la imagen
     imagen.className = "img-fluid altura"; //agregar clases a las imágenes
@@ -154,7 +153,7 @@ function agregarImagenes() {
   });
 }
 
-//función para mostrar las imagenes ocultas
+//función para mostrar las imágenes ocultas
 function mostrarImagenes() {
   sonidoSeleccion.play();
 
@@ -180,9 +179,9 @@ function compararImagenes() {
     if (idImg[0] != idImg[1]) {
       // miAlerta("Felicidades adivinaste las imagenes", "success");
       sonidoAcierto.play();
-      allimg[idImg[0]].src = "./images/ok.jpg";
-      allimg[idImg[1]].src = "./images/ok.jpg";
-      //bloquear las imagens para que no se vuelvan a seleccionar
+      allimg[idImg[0]].src = "./images/ok.png";
+      allimg[idImg[1]].src = "./images/ok.png";
+      //bloquear las imágenes para que no se vuelvan a seleccionar
       allimg[idImg[0]].removeEventListener("click", mostrarImagenes);
       allimg[idImg[1]].removeEventListener("click", mostrarImagenes);
       aciertos++;
@@ -193,8 +192,8 @@ function compararImagenes() {
     }
 
     //miAlerta("Son iguales", "success");
-    //     allimg[idImg[0]].src = "./images/ok.jpg";
-    //    allimg[idImg[1]].src = "./images/ok.jpg";
+    //     allimg[idImg[0]].src = "./images/ok.png";
+    //    allimg[idImg[1]].src = "./images/ok.png";
   } else {
     // miAlerta("No son iguales, sigue intentando", "error");
     sonidoFalla.play();
@@ -209,7 +208,10 @@ function compararImagenes() {
 
   //verificar si todas las imagenes están destapadas
   if (nivel == 1 && aciertos == 6) {
-    miAlerta("Felicidades has ganado, pasaste al siguiente nivel.🥳👍", "success");
+    miAlerta(
+      "Felicidades has ganado, pasaste al siguiente nivel.🥳👍",
+      "success"
+    );
     fondoBody.classList.replace("fondo1", "fondo2");
 
     // location.reload();//quitar luego.. recarga la pagina.
@@ -228,10 +230,14 @@ function compararImagenes() {
     clearInterval(tiempoTranscurrido);
     tiempo = 50;
     mostrarTiempo.textContent = tiempo;
+    mostrarTiempo.classList.remove("tiempoAgotado");
     estoyJugando = false;
     quitarImg();
   } else if (nivel == 2 && aciertos == 8) {
-    miAlerta("Felicidades has ganado, pasaste al siguiente nivel.🥳👍", "success");
+    miAlerta(
+      "Felicidades has ganado, pasaste al siguiente nivel.🥳👍",
+      "success"
+    );
     fondoBody.classList.replace("fondo2", "fondo3");
     totalIntentos += intentos;
     totalTiempo += tiempo;
@@ -248,6 +254,7 @@ function compararImagenes() {
     clearInterval(tiempoTranscurrido);
     tiempo = 45;
     mostrarTiempo.textContent = tiempo;
+    mostrarTiempo.classList.remove("tiempoAgotado");
     estoyJugando = false;
     quitarImg();
   } else if (nivel == 3 && aciertos == 10) {
@@ -286,14 +293,14 @@ function tiempoDeJuego() {
     tiempo--;
     mostrarTiempo.textContent = tiempo;
     if (tiempo == 15) {
-      miAlerta("Quedan 15 segundos para terminar el juego.⏳","warning");
+      miAlerta("Quedan 15 segundos para terminar el juego.⏳", "warning");
       sonidoIntro.pause();
       tiempoAgotandose.play();
       tiempoAgotandose.volume = 0.1;
       //sonido de urgencia
       mostrarTiempo.classList.add("tiempoAgotado");
     } else if (tiempo == 0) {
-      miAlerta("Se acabo el tiempo, perdiste.😢","error");
+      miAlerta("Se acabo el tiempo, perdiste.😢", "error");
       tiempoAgotandose.pause();
       sonidoJuegoPerdido.play();
       sonidoJuegoPerdido.volume = 0.4;
@@ -319,12 +326,14 @@ function ventanaModal() {
   let cerrarModal = d.querySelectorAll(".cerrar");
   let inputJugador = d.querySelector(".nombre-jugador");
   let btnJugador = d.querySelector(".registrar-jugador");
+  let banderaVentanaModal = true;
 
   //evento click para cerrar el modal
   cerrarModal.forEach((btn) => {
     btn.addEventListener("click", () => {
       mostrarModal.classList.remove("show");
-      mostrarModal.style.display = "none";      
+      mostrarModal.style.display = "none";
+      banderaVentanaModal = false;
       console.log("Se cierra ventana modal");
     });
   });
@@ -333,40 +342,36 @@ function ventanaModal() {
   mostrarModal.classList.add("show");
   mostrarModal.style.display = "block";
 
-  if (inputJugador.value != null) {
-    //evento click para registrar el nombre del jugador
-    btnJugador.addEventListener("click", () => {
+  //evento click para registrar el nombre del jugador
+  btnJugador.addEventListener("click", () => {
+    banderaVentanaModal ? registrarJugador() : (banderaVentanaModal = false);
+    console.log("Se ejecuta juego nivel 1 por Botón");
+  });
+
+  //evento click para registrar el nombre del jugador al momento de presionar Enter
+  inputJugador.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      banderaVentanaModal ? registrarJugador() : (banderaVentanaModal = false);
+      console.log("Se ejecuta juego nivel 1 por presionar Enter");
+    }
+  });
+
+  function registrarJugador() {
+    if (inputJugador.value != null && inputJugador.value == "") {
+      miAlerta("Debes ingresar un nombre para poder jugar", "info");
+      console.log(inputJugador.value);
+    } else {
       //mostrar el nombre del jugador
-      mostrarJugador.textContent = inputJugador.value;
+      mostrarJugador.textContent = inputJugador.value.toUpperCase();
       //cerrar el modal
       mostrarModal.classList.remove("show");
       mostrarModal.style.display = "none";
       //iniciar nivel 1
       estoyJugando = true;
       nivel1();
-      console.log("Se ejecuta juego nivel 1 por Botón");
-    });
-  
-    //evento click para registrar el nombre del jugador al momento de presionar Enter
-    inputJugador.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        //mostrar el nombre del jugador
-        mostrarJugador.textContent = inputJugador.value;
-        //cerrar el modal
-        mostrarModal.classList.remove("show");
-        mostrarModal.style.display = "none";
-        //iniciar nivel 1
-        estoyJugando = true;
-        nivel1();
-        console.log("Se ejecuta juego nivel 1 por presionar Enter");
-      }
-    });
-    
-  } else {
-    miAlerta("Debes ingresar un nombre para poder jugar", "info");
+    }
   }
-
 }
 
 function miAlerta(mensaje, icono) {
